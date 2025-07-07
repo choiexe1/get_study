@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     final CounterController controller = Get.find<CounterController>();
 
     return Scaffold(
-      appBar: AppBar(title: Text('GetX Counter')),
+      appBar: AppBar(title: Text('GetX Example'.trArgs(['ABC', 'DEF']))),
       body: Center(
         child: Obx(
           () =>
