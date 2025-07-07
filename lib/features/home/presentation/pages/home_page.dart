@@ -13,8 +13,21 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: Text('GetX Example'.trArgs(['ABC', 'DEF']))),
       body: Center(
         child: Obx(
-          () =>
+          () => Row(
+            children: [
+              ElevatedButton(
+                child: Text('Change Locale'.tr),
+                onPressed: () {
+                  if (Get.locale?.languageCode == 'ko') {
+                    Get.updateLocale(Locale('en'));
+                  } else {
+                    Get.updateLocale(Locale('ko'));
+                  }
+                },
+              ),
               Text('${controller.count.value}', style: TextStyle(fontSize: 48)),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
