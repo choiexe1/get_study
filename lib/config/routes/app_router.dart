@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
 import 'package:get_study/config/routes/app_routes.dart';
-import 'package:get_study/features/auth/bindings/login_bindings.dart';
-import 'package:get_study/features/auth/presentation/pages/login_page.dart';
-import 'package:get_study/features/home/bindings/home_bindings.dart';
-import 'package:get_study/features/home/presentation/pages/home_page.dart';
+import 'package:get_study/presentation/controllers/home/home_controller_bindings.dart';
+import 'package:get_study/presentation/controllers/login/login_controller_bindings.dart';
+import 'package:get_study/presentation/pages/login_page.dart';
+import 'package:get_study/presentation/pages/home_page.dart';
 
 class AppRouter {
   static final routes = [
     GetPage(
       name: Routes.login,
       page: () => const LoginPage(),
-      binding: LoginBindings(),
+      binding: LoginControllerBindings(),
     ),
     GetPage(
       name: Routes.home,
