@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_study/core/image_constants.dart';
+import 'package:get_study/config/constants/image_constants.dart';
 import 'package:get_study/presentation/controllers/login/login_controller.dart';
 import 'package:get_study/presentation/components/background_scaffold.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
