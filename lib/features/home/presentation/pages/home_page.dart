@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_study/features/home/domain/view_model/counter_view_model.dart';
-import 'package:get_study/features/i18n/domain/view_model/i18n_view_model.dart';
+import 'package:get_study/features/home/presentation/controllers/home_controller.dart';
+import 'package:get_study/features/home/presentation/widgets/credit_card.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends GetView<HomeController> {
+  const HomePage({super.key, required this.id});
+
+  final int id;
 
   @override
   Widget build(BuildContext context) {
-    final CounterViewModel vm = Get.find();
-    final I18nViewModel i18n = Get.find();
-
     return Scaffold(
-      appBar: AppBar(title: Text('GetX Example'.trArgs(['ABC', 'DEF']))),
-      body: Center(
-        child: Row(
+      body: SafeArea(
+        child: Column(
+          spacing: 10,
           children: [
-            ElevatedButton(
-              child: Text('Change Locale'.tr),
-              onPressed: () {
-                i18n.changeLocale(Locale('en'));
-              },
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return Obx(
+                    () => CreditCard(
+                      holderName: controller.user.value.name,
+                      bankName: 'Korea Bank',
+                      cardNumber: '123123123123123',
+                      cvvCode: '123',
+                      expiryDate: '12/26',
+                    ),
+                  );
+                },
+              ),
             ),
-            Obx(() => Text('${vm.counter}', style: TextStyle(fontSize: 48))),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: vm.increment,
-        child: Icon(Icons.add),
       ),
     );
   }

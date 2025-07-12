@@ -1,10 +1,9 @@
 import 'package:get/instance_manager.dart';
-import 'package:get_study/features/home/domain/view_model/counter_view_model.dart';
-import 'package:get_study/features/home/presentation/view_model/counter_view_model.dart';
+import 'package:get_study/features/home/presentation/controllers/home_controller.dart';
 
-class HomeBindings extends Bindings {
+class HomeControllerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<CounterViewModel>(() => CounterViewModelImpl());
+    Get.put(HomeController());
   }
 }
