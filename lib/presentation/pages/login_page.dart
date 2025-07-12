@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_study/config/constants/image_constants.dart';
 import 'package:get_study/presentation/controllers/login/login_controller.dart';
 import 'package:get_study/presentation/components/background_scaffold.dart';
+import 'package:get_study/presentation/controllers/login/login_event.dart';
+import 'package:get_study/presentation/widgets/leading_button.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -66,21 +68,38 @@ class LoginPage extends GetView<LoginController> {
                   ),
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ShadButton(
-                      child: const Text('로그인'),
-                      onPressed: () {
-                        final validated = formKey.currentState!
-                            .saveAndValidate();
+                    Obx(
+                      () => LeadingButton(
+                        onPressed: () {
+                          final validated = formKey.currentState!
+                              .saveAndValidate();
 
-                        if (validated) {
-                          final username =
-                              formKey.currentState!.value['username'];
-                          final password =
-                              formKey.currentState!.value['password'];
-                          controller.login(username, password);
-                        }
-                      },
+                          if (validated) {
+                            final username =
+                                formKey.currentState!.value['username'];
+                            final password =
+                                formKey.currentState!.value['password'];
+                            controller.login(username, password);
+                          }
+                        },
+                        spacing: 12,
+                        children: [
+                          controller.event.value is LoginEventLoading
+                              ? SizedBox.square(
+                                  dimension: 16,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: ShadTheme.of(
+                                      context,
+                                    ).colorScheme.primaryForeground,
+                                  ),
+                                )
+                              : const Icon(Icons.login, size: 16),
+                          const Text('로그인'),
+                        ],
+                      ),
                     ),
                   ],
                 ),

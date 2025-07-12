@@ -34,7 +34,7 @@ class LoginController extends GetxController {
             Padding(
               padding: const EdgeInsets.all(32),
               child: ShadDialog.alert(
-                title: const Text('로그인 실패'),
+                title: const Text('알림'),
                 description: Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(message),
@@ -57,6 +57,11 @@ class LoginController extends GetxController {
   }
 
   Future<void> login(String username, String password) async {
+    event.value = LoginEventLoading();
+
+    // TODO: 로그인 상태 변화 확인을 위한 딜레이
+    await Future.delayed(Duration(seconds: 1));
+
     final Result<UserEntity, BaseException> result = await _loginUseCase((
       username: username,
       password: password,
