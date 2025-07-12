@@ -59,7 +59,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     validator: (v) {
                       if (v.length < 2) {
-                        return 'Password must be at least 2 characters.';
+                        return '비밀번호는 최소 2글자 이상이어야 합니다.';
                       }
                       return null;
                     },

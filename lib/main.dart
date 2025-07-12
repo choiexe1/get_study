@@ -7,6 +7,7 @@ import 'package:get_study/global_bindings.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const App());
 }
 

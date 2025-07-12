@@ -23,7 +23,7 @@ class HomePage extends GetView<HomeController> {
                   return Obx(
                     () => CreditCard(
                       holderName: controller.user.value.name,
-                      bankName: 'Korea Bank',
+                      bankName: 'Korea Bank'.tr,
                       cardNumber: '123123123123123',
                       cvvCode: '123',
                       expiryDate: '12/26',
