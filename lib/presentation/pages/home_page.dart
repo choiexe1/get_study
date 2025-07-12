@@ -23,9 +23,11 @@ class HomePage extends GetView<HomeController> {
                   return Obx(
                     () => CreditCard(
                       holderName: controller.user.value.name,
-                      bankName: 'Korea Bank'.tr,
+                      canFlip: false,
+                      bankName: '한국 은행'.tr,
                       cardNumber: '123123123123123',
                       cvvCode: '123',
+                      labelValidThru: '유효기간'.tr,
                       expiryDate: '12/26',
                     ),
                   );
