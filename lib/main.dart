@@ -20,6 +20,7 @@ class App extends StatelessWidget {
       brightness: Brightness.dark,
       colorScheme: ShadColorScheme.fromName('neutral'),
     );
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.login,
