@@ -4,7 +4,6 @@ import 'package:get_study/features/auth/bindings/login_bindings.dart';
 import 'package:get_study/features/auth/presentation/pages/login_page.dart';
 import 'package:get_study/features/home/bindings/home_bindings.dart';
 import 'package:get_study/features/home/presentation/pages/home_page.dart';
-import 'package:get_study/features/i18n/bindings/i18n_bindings.dart';
 
 class AppRouter {
   static final routes = [
@@ -15,8 +14,11 @@ class AppRouter {
     ),
     GetPage(
       name: Routes.home,
-      page: () => const HomePage(),
-      bindings: [HomeBindings(), I18nBindings()],
+      page: () {
+        final int id = int.parse(Get.parameters['id']!);
+        return HomePage(id: id);
+      },
+      bindings: [HomeControllerBindings()],
     ),
   ];
 }
