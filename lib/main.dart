@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_study/config/routes/app_router.dart';
 import 'package:get_study/config/routes/app_routes.dart';
 import 'package:get_study/config/translation/app_translation.dart';
+import 'package:get_study/global_bindings.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 void main() {
@@ -16,10 +17,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final shadcnTheme = ShadThemeData(
       brightness: Brightness.dark,
-      colorScheme: ShadColorScheme.fromName('stone'),
+      colorScheme: ShadColorScheme.fromName('neutral'),
     );
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: Routes.login,
+      initialBinding: GlobalBindings(),
       locale: const Locale('ko'),
       getPages: AppRouter.routes,
       translations: AppTranslation(),
