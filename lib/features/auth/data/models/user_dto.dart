@@ -1,7 +1,12 @@
 import 'package:get_study/features/auth/domain/entities/user_entity.dart';
 
 class UserDto extends UserEntity {
-  const UserDto({super.id, super.username, super.password, super.name});
+  const UserDto({
+    required super.id,
+    required super.username,
+    required super.password,
+    required super.name,
+  });
 
   UserEntity toEntity() {
     return UserEntity(

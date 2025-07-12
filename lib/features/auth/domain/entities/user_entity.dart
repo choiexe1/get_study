@@ -9,10 +9,10 @@ class UserEntity {
     required this.name,
   });
 
-  final int? id;
-  final String? username;
-  final String? password;
-  final String? name;
+  final int id;
+  final String username;
+  final String password;
+  final String name;
 
   @override
   String toString() {
