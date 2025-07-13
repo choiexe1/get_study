@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_study/config/constants/image_constants.dart';
 import 'package:get_study/presentation/controllers/login/login_controller.dart';
 import 'package:get_study/presentation/components/background_scaffold.dart';
-import 'package:get_study/presentation/controllers/login/login_event.dart';
+import 'package:get_study/presentation/controllers/login/login_state.dart';
 import 'package:get_study/presentation/widgets/leading_button.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -100,7 +100,7 @@ class LoginPage extends GetView<LoginController> {
                         },
                         spacing: 12,
                         children: [
-                          controller.event.value is LoginEventLoading
+                          controller.event.value is LoginStateLoading
                               ? SizedBox.square(
                                   dimension: 14,
                                   child: CircularProgressIndicator(

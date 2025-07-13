@@ -7,7 +7,7 @@ import 'package:get_study/core/base_exception.dart';
 import 'package:get_study/core/result.dart';
 import 'package:get_study/domain/use_cases/login_use_case.dart';
 import 'package:get_study/domain/entities/user_entity.dart';
-import 'package:get_study/presentation/controllers/login/login_event.dart';
+import 'package:get_study/presentation/controllers/login/login_state.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class LoginController extends GetxController {
@@ -18,7 +18,7 @@ class LoginController extends GetxController {
 
   final RxBool _obscure = true.obs;
   final RxString _loadedUsername = ''.obs;
-  final Rx<LoginEvent> event = Rx(LoginEventInit());
+  final Rx<LoginState> event = Rx(LoginStateInit());
   final RxBool _saveUsername = false.obs;
 
   bool get obscure => _obscure.value;
@@ -38,12 +38,12 @@ class LoginController extends GetxController {
 
     ever(event, (currentEvent) {
       switch (currentEvent) {
-        case LoginEventInit():
-        case LoginEventLoading():
+        case LoginStateInit():
+        case LoginStateLoading():
           break;
-        case LoginEventSuccess():
+        case LoginStateSuccess():
           Get.offNamed(Routes.home);
-        case LoginEventFailed(:final String message):
+        case LoginStateFailed(:final String message):
           Get.dialog(
             Padding(
               padding: const EdgeInsets.all(32),
@@ -80,7 +80,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> login(String username, String password) async {
-    event.value = LoginEventLoading();
+    event.value = LoginStateLoading();
 
     // TODO: 로그인 상태 변화 확인을 위한 딜레이
     await Future.delayed(Duration(seconds: 1));
@@ -94,9 +94,9 @@ class LoginController extends GetxController {
       case Success<UserEntity, BaseException>():
         _storage.write(StorageKey.username, username);
         _storage.writeInMemory(StorageKey.currentUser, result.value);
-        event.value = LoginEventSuccess();
+        event.value = LoginStateSuccess();
       case Failure<UserEntity, BaseException>():
-        event.value = LoginEventFailed(result.exception.message ?? '실패');
+        event.value = LoginStateFailed(result.exception.message ?? '실패');
     }
   }
 }
