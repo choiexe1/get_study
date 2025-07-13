@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:get_study/config/routes/app_router.dart';
 import 'package:get_study/config/routes/app_routes.dart';
 import 'package:get_study/config/translation/app_translation.dart';
 import 'package:get_study/global_bindings.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const App());
 }
 
