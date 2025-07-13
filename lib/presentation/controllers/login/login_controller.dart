@@ -41,8 +41,8 @@ class LoginController extends GetxController {
         case LoginEventInit():
         case LoginEventLoading():
           break;
-        case LoginEventSuccess(:final user):
-          Get.offNamed(Routes.goHome(user.id));
+        case LoginEventSuccess():
+          Get.offNamed(Routes.home);
         case LoginEventFailed(:final String message):
           Get.dialog(
             Padding(
@@ -94,7 +94,7 @@ class LoginController extends GetxController {
       case Success<UserEntity, BaseException>():
         _storage.write(StorageKey.username, username);
         _storage.writeInMemory(StorageKey.currentUser, result.value);
-        event.value = LoginEventSuccess(result.value);
+        event.value = LoginEventSuccess();
       case Failure<UserEntity, BaseException>():
         event.value = LoginEventFailed(result.exception.message ?? '실패');
     }

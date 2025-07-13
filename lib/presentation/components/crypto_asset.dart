@@ -8,7 +8,7 @@ class CryptoAsset extends StatelessWidget {
     required this.holdings,
     super.key,
     this.backgroundColor,
-    this.radius = 16,
+    this.radius = 20,
   });
 
   final Widget child;

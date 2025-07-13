@@ -7,9 +7,7 @@ import 'package:get_study/presentation/widgets/credit_card.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class HomePage extends GetView<HomeController> {
-  const HomePage({super.key, required this.id});
-
-  final int id;
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +32,27 @@ class HomePage extends GetView<HomeController> {
                   ),
                 ),
               ),
-              CryptoAsset(
-                symbol: 'BTC',
-                holdings: '12.9594',
-                child: SvgPicture.asset(ImageConstants.bitcoinLogo),
-              ),
-              CryptoAsset(
-                symbol: 'ETH',
-                holdings: '19.4281741023',
-                child: SvgPicture.asset(ImageConstants.ethereumLogo),
-              ),
-              CryptoAsset(
-                symbol: 'TRX',
-                holdings: '491.491274103',
-                child: SvgPicture.asset(ImageConstants.tronTrxLogo),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 16,
+                children: [
+                  Text('보유 자산', style: ShadTheme.of(context).textTheme.h4),
+                  CryptoAsset(
+                    symbol: 'BTC',
+                    holdings: '12.9594',
+                    child: SvgPicture.asset(ImageConstants.bitcoinLogo),
+                  ),
+                  CryptoAsset(
+                    symbol: 'ETH',
+                    holdings: '19.4281741023',
+                    child: SvgPicture.asset(ImageConstants.ethereumLogo),
+                  ),
+                  CryptoAsset(
+                    symbol: 'TRX',
+                    holdings: '491.491274103',
+                    child: SvgPicture.asset(ImageConstants.tronTrxLogo),
+                  ),
+                ],
               ),
             ],
           ),

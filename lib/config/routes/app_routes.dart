@@ -3,7 +3,5 @@ abstract class Routes {
   static const login = '/login';
 
   // PRIVATE ROUTES
-  static const home = '/:id';
-
-  static String goHome(int id) => '/$id';
+  static const home = '/';
 }

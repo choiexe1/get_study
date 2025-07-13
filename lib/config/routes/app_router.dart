@@ -15,10 +15,9 @@ class AppRouter {
     GetPage(
       name: Routes.home,
       page: () {
-        final int id = int.parse(Get.parameters['id']!);
-        return HomePage(id: id);
+        return HomePage();
       },
-      bindings: [HomeControllerBindings()],
+      binding: HomeControllerBindings(),
     ),
   ];
 }
