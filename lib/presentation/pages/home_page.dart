@@ -18,7 +18,7 @@ class HomePage extends GetView<HomeController> {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10,
+            spacing: 16,
             children: [
               Center(
                 child: Obx(
@@ -33,7 +33,14 @@ class HomePage extends GetView<HomeController> {
                   ),
                 ),
               ),
-              Section(title: '유저 정보', children: []),
+              Section(
+                title: '유저 정보',
+                children: [
+                  Text(controller.user.value.id.toString()),
+                  Text(controller.user.value.name),
+                  Text(controller.user.value.username),
+                ],
+              ),
               Section(
                 title: '보유 자산',
                 children: [

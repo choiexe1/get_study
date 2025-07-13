@@ -21,7 +21,24 @@ class Section extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       spacing: spacing,
       children: [
-        Text(title, style: ShadTheme.of(context).textTheme.h4),
+        Row(
+          spacing: 8,
+          children: [
+            Text(title, style: ShadTheme.of(context).textTheme.h4),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  border: BoxBorder.fromLTRB(
+                    top: BorderSide(
+                      width: 0.2,
+                      color: ShadTheme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
         ...children,
       ],
     );

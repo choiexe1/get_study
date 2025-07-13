@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     user.value = _storage.read(StorageKey.currentUser);
+    print(user.value);
     super.onInit();
   }
 }
