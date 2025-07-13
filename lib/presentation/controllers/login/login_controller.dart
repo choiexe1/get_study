@@ -18,7 +18,7 @@ class LoginController extends GetxController {
 
   final RxBool _obscure = true.obs;
   final RxString _loadedUsername = ''.obs;
-  final Rx<LoginState> event = Rx(LoginStateInit());
+  final Rx<LoginState> state = Rx(LoginStateInit());
   final RxBool _saveUsername = false.obs;
 
   bool get obscure => _obscure.value;
@@ -36,7 +36,7 @@ class LoginController extends GetxController {
       _loadedUsername.value = _storage.read(StorageKey.username);
     }
 
-    ever(event, (currentEvent) {
+    ever(state, (currentEvent) {
       switch (currentEvent) {
         case LoginStateInit():
         case LoginStateLoading():
@@ -80,7 +80,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> login(String username, String password) async {
-    event.value = LoginStateLoading();
+    state.value = LoginStateLoading();
 
     // TODO: 로그인 상태 변화 확인을 위한 딜레이
     await Future.delayed(Duration(seconds: 1));
@@ -94,9 +94,9 @@ class LoginController extends GetxController {
       case Success<UserEntity, BaseException>():
         _storage.write(StorageKey.username, username);
         _storage.writeInMemory(StorageKey.currentUser, result.value);
-        event.value = LoginStateSuccess();
+        state.value = LoginStateSuccess();
       case Failure<UserEntity, BaseException>():
-        event.value = LoginStateFailed(result.exception.message ?? '실패');
+        state.value = LoginStateFailed(result.exception.message ?? '실패');
     }
   }
 }

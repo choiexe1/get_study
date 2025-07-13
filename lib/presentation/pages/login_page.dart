@@ -100,7 +100,7 @@ class LoginPage extends GetView<LoginController> {
                         },
                         spacing: 12,
                         children: [
-                          controller.event.value is LoginStateLoading
+                          controller.state.value is LoginStateLoading
                               ? SizedBox.square(
                                   dimension: 14,
                                   child: CircularProgressIndicator(

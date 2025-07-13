@@ -22,7 +22,7 @@ class Section extends StatelessWidget {
       spacing: spacing,
       children: [
         Row(
-          spacing: 8,
+          spacing: 16,
           children: [
             Text(title, style: ShadTheme.of(context).textTheme.h4),
             Expanded(

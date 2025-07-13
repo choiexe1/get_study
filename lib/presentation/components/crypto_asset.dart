@@ -32,13 +32,16 @@ class CryptoAsset extends StatelessWidget {
           spacing: 4,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ShadBadge(
-              child: Text(
-                symbol,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 1.6,
+            SizedBox(
+              height: 20,
+              child: ShadBadge(
+                child: Text(
+                  symbol,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1.6,
+                  ),
                 ),
               ),
             ),
