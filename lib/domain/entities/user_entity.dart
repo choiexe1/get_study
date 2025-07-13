@@ -29,6 +29,6 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(username: $username, password: $password, name: $name)';
+    return 'UserEntity(id: $id, username: $username, password: $password, name: $name)';
   }
 }
