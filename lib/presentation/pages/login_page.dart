@@ -26,17 +26,20 @@ class LoginPage extends GetView<LoginController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                ShadInputFormField(
-                  decoration: ShadDecoration(color: Colors.white),
-                  id: 'username',
-                  label: const Text('Username'),
-                  placeholder: const Text('유저네임을 입력하세요.'),
-                  validator: (v) {
-                    if (v.length < 2) {
-                      return '유저네임은 최소 2글자 이상이어야 합니다.';
-                    }
-                    return null;
-                  },
+                Obx(
+                  () => ShadInputFormField(
+                    decoration: ShadDecoration(color: Colors.white),
+                    id: 'username',
+                    label: const Text('Username'),
+                    initialValue: controller.loadedUsername,
+                    placeholder: const Text('유저네임을 입력하세요.'),
+                    validator: (v) {
+                      if (v.length < 2) {
+                        return '유저네임은 최소 2글자 이상이어야 합니다.';
+                      }
+                      return null;
+                    },
+                  ),
                 ),
                 Obx(
                   () => ShadInputFormField(
@@ -65,6 +68,16 @@ class LoginPage extends GetView<LoginController> {
                       }
                       return null;
                     },
+                  ),
+                ),
+                Obx(
+                  () => ShadCheckbox(
+                    value: controller.saveUsername,
+                    onChanged: (v) => controller.toggleSaveUsername(),
+                    label: const Text(
+                      '유저네임 저장',
+                      style: TextStyle(fontSize: 12),
+                    ),
                   ),
                 ),
                 Row(

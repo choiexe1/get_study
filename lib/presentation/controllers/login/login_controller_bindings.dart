@@ -6,6 +6,6 @@ class LoginControllerBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(LoginUseCase(Get.find()));
-    Get.put(LoginController(Get.find()));
+    Get.put(LoginController(Get.find(), Get.find()));
   }
 }
