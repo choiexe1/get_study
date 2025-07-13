@@ -8,6 +8,7 @@ class CryptoAsset extends StatelessWidget {
     required this.holdings,
     super.key,
     this.backgroundColor,
+    this.address,
     this.radius = 20,
   });
 
@@ -15,6 +16,7 @@ class CryptoAsset extends StatelessWidget {
   final double radius;
   final String symbol;
   final String holdings;
+  final String? address;
   final Color? backgroundColor;
 
   @override
@@ -45,12 +47,28 @@ class CryptoAsset extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              holdings,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.black.withValues(alpha: 100),
-                letterSpacing: 1.2,
+            Text.rich(
+              TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                    text: holdings.substring(0, 8),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                  TextSpan(
+                    text: address != null
+                        ? ' (${address!.substring(0, 12)})'
+                        : ' (Not connected)',
+                    style: TextStyle(
+                      color: Colors.black.withValues(alpha: 100),
+                      fontSize: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

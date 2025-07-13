@@ -53,17 +53,19 @@ class HomePage extends GetView<HomeController> {
                   children: [
                     CryptoAsset(
                       symbol: 'BTC',
-                      holdings: '12.9594',
+                      holdings: '12.95941733',
+                      address: '0xc0ffee254729296a45a3885639AC7E10F9d54979',
                       child: SvgPicture.asset(ImageConstants.bitcoinLogo),
                     ),
                     CryptoAsset(
                       symbol: 'ETH',
-                      holdings: '19.4281741023',
+                      holdings: '19.42817591',
                       child: SvgPicture.asset(ImageConstants.ethereumLogo),
                     ),
                     CryptoAsset(
                       symbol: 'TRX',
-                      holdings: '491.491274103',
+                      holdings: '491.491751',
+                      address: '0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E',
                       child: SvgPicture.asset(ImageConstants.tronTrxLogo),
                     ),
                   ],
