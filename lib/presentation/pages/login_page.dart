@@ -101,7 +101,7 @@ class LoginPage extends GetView<LoginController> {
                         children: [
                           controller.event.value is LoginEventLoading
                               ? SizedBox.square(
-                                  dimension: 16,
+                                  dimension: 14,
                                   child: CircularProgressIndicator(
                                     strokeWidth: 2,
                                     color: ShadTheme.of(
@@ -109,7 +109,7 @@ class LoginPage extends GetView<LoginController> {
                                     ).colorScheme.primaryForeground,
                                   ),
                                 )
-                              : const Icon(Icons.login, size: 16),
+                              : const Icon(Icons.login, size: 14),
                           const Text('로그인'),
                         ],
                       ),
