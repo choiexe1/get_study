@@ -85,7 +85,7 @@ class LoginPage extends GetView<LoginController> {
                   children: [
                     Obx(
                       () => LeadingButton(
-                        onPressed: () {
+                        onPressed: () async {
                           final validated = formKey.currentState!
                               .saveAndValidate();
 
@@ -94,7 +94,8 @@ class LoginPage extends GetView<LoginController> {
                                 formKey.currentState!.value['username'];
                             final password =
                                 formKey.currentState!.value['password'];
-                            controller.login(username, password);
+
+                            await controller.login(username, password);
                           }
                         },
                         spacing: 12,
