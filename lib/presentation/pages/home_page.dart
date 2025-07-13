@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_study/config/constants/image_constants.dart';
 import 'package:get_study/presentation/components/crypto_asset.dart';
+import 'package:get_study/presentation/components/section.dart';
 import 'package:get_study/presentation/controllers/home/home_controller.dart';
 import 'package:get_study/presentation/widgets/credit_card.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -32,11 +33,10 @@ class HomePage extends GetView<HomeController> {
                   ),
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 16,
+              Section(title: '유저 정보', children: []),
+              Section(
+                title: '보유 자산',
                 children: [
-                  Text('보유 자산', style: ShadTheme.of(context).textTheme.h4),
                   CryptoAsset(
                     symbol: 'BTC',
                     holdings: '12.9594',
