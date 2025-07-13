@@ -26,7 +26,7 @@ class CreditCard extends StatelessWidget {
     return SizedBox(
       width: 340,
       child: CreditCardWidget(
-        textStyle: TextStyle(fontSize: 14, color: Colors.white),
+        textStyle: TextStyle(fontSize: 12, color: Colors.white),
         showBackView: false,
         onCreditCardWidgetChange: (CreditCardBrand brand) {},
         cardType: CardType.mastercard,

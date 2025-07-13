@@ -4,6 +4,6 @@ import 'package:get_study/presentation/controllers/home/home_controller.dart';
 class HomeControllerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put(HomeController());
+    Get.put(HomeController(Get.find()));
   }
 }

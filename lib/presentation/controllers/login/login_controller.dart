@@ -93,6 +93,7 @@ class LoginController extends GetxController {
     switch (result) {
       case Success<UserEntity, BaseException>():
         _storage.write(StorageKey.username, username);
+        _storage.writeInMemory(StorageKey.currentUser, result.value);
         event.value = LoginEventSuccess(result.value);
       case Failure<UserEntity, BaseException>():
         event.value = LoginEventFailed(result.exception.message ?? '실패');
