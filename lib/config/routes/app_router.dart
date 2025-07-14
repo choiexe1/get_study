@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_study/config/routes/app_routes.dart';
+import 'package:get_study/presentation/components/scaffolds/search_bar_scaffold.dart';
 import 'package:get_study/presentation/controllers/home/home_controller_bindings.dart';
 import 'package:get_study/presentation/controllers/login/login_controller_bindings.dart';
 import 'package:get_study/presentation/pages/login_page.dart';
@@ -7,6 +9,18 @@ import 'package:get_study/presentation/pages/home_page.dart';
 
 class AppRouter {
   static final routes = [
+    GetPage(
+      name: '/component',
+      page: () {
+        return SearchBarScaffold(
+          controller: TextEditingController(),
+          placeHolder: '검색하세요.',
+          onSearchSubmitted: (String value) {
+            debugPrint(value);
+          },
+        );
+      },
+    ),
     GetPage(
       name: Routes.login,
       page: () => const LoginPage(),
