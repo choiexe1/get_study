@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get_study/config/constants/storage_key.dart';
@@ -23,7 +24,7 @@ class HomeController extends GetxController {
   Future<void> pullToRefresh() async {
     state.value = HomeStateLoading();
     await Future.delayed(Duration(seconds: 1));
-    print('refresh');
+    debugPrint('refresh');
     state.value = HomeStateInit();
   }
 }

@@ -5,7 +5,7 @@ import 'package:get_study/presentation/components/scaffolds/search_bar_scaffold.
 import 'package:get_study/presentation/controllers/home/home_controller_bindings.dart';
 import 'package:get_study/presentation/controllers/login/login_controller_bindings.dart';
 import 'package:get_study/presentation/pages/login_page.dart';
-import 'package:get_study/presentation/pages/home_page.dart';
+import 'package:get_study/presentation/pages/wallet_home_page.dart';
 
 class AppRouter {
   static final routes = [
@@ -28,9 +28,7 @@ class AppRouter {
     ),
     GetPage(
       name: Routes.home,
-      page: () {
-        return HomePage();
-      },
+      page: () => const WalletHomePage(),
       binding: HomeControllerBindings(),
     ),
   ];

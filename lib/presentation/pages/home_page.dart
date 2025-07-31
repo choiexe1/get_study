@@ -7,8 +7,8 @@ import 'package:get_study/presentation/controllers/home/home_controller.dart';
 import 'package:get_study/presentation/widgets/credit_card.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-class HomePage extends GetView<HomeController> {
-  const HomePage({super.key});
+class LegacyHomePage extends GetView<HomeController> {
+  const LegacyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
