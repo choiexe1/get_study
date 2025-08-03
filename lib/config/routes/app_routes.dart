@@ -4,4 +4,5 @@ abstract class Routes {
 
   // PRIVATE ROUTES
   static const home = '/';
+  static const send = '/send';
 }

@@ -4,7 +4,9 @@ import 'package:get_study/config/routes/app_routes.dart';
 import 'package:get_study/presentation/components/scaffolds/search_bar_scaffold.dart';
 import 'package:get_study/presentation/controllers/home/home_controller_bindings.dart';
 import 'package:get_study/presentation/controllers/login/login_controller_bindings.dart';
+import 'package:get_study/presentation/controllers/send/send_controller_bindings.dart';
 import 'package:get_study/presentation/pages/login_page.dart';
+import 'package:get_study/presentation/pages/send_page.dart';
 import 'package:get_study/presentation/pages/wallet_home_page.dart';
 
 class AppRouter {
@@ -30,6 +32,11 @@ class AppRouter {
       name: Routes.home,
       page: () => const WalletHomePage(),
       binding: HomeControllerBindings(),
+    ),
+    GetPage(
+      name: Routes.send,
+      page: () => const SendPage(),
+      binding: SendControllerBindings(),
     ),
   ];
 }

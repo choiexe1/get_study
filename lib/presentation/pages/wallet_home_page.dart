@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_study/config/constants/image_constants.dart';
+import 'package:get_study/config/routes/app_routes.dart';
 import 'package:get_study/presentation/controllers/home/home_controller.dart';
 import 'package:get_study/presentation/widgets/portfolio_value_card.dart';
 import 'package:get_study/presentation/components/quick_action_grid.dart';
@@ -99,7 +100,7 @@ class WalletHomePage extends GetView<HomeController> {
         QuickActionButton(
           label: 'Send',
           icon: Icons.arrow_upward,
-          onTap: () {},
+          onTap: () => Get.toNamed(Routes.send),
         ),
         QuickActionButton(
           label: 'Receive',
