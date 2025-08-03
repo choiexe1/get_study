@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get_study/presentation/widgets/quick_action.dart';
 
 class QuickActionButton extends StatelessWidget {
-  const QuickActionButton({super.key, required this.action});
+  const QuickActionButton({
+    required this.label,
+    required this.icon,
+    required this.onTap,
+    this.backgroundColor,
+    this.iconColor,
+    super.key,
+  });
 
-  final QuickAction action;
+  final String label;
+  final IconData icon;
+  final VoidCallback onTap;
+  final Color? backgroundColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +23,12 @@ class QuickActionButton extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: action.onTap,
+        onTap: onTap,
         borderRadius: BorderRadius.circular(16),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
-            color: action.backgroundColor ?? theme.cardColor,
+            color: backgroundColor ?? theme.cardColor,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: theme.dividerColor.withValues(alpha: 0.2),
@@ -31,20 +41,20 @@ class QuickActionButton extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: (action.iconColor ?? theme.primaryColor).withValues(
+                  color: (iconColor ?? theme.primaryColor).withValues(
                     alpha: 0.1,
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
-                  action.icon,
+                  icon,
                   size: 20,
-                  color: action.iconColor ?? theme.primaryColor,
+                  color: iconColor ?? theme.primaryColor,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                action.label,
+                label,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:get_study/config/constants/image_constants.dart';
 import 'package:get_study/presentation/controllers/home/home_controller.dart';
 import 'package:get_study/presentation/widgets/portfolio_value_card.dart';
-import 'package:get_study/presentation/widgets/quick_action.dart';
 import 'package:get_study/presentation/components/quick_action_grid.dart';
+import 'package:get_study/presentation/widgets/quick_action_button.dart';
 import 'package:get_study/presentation/widgets/section_header.dart';
 import 'package:get_study/presentation/widgets/asset_item_card.dart';
 import 'package:get_study/presentation/widgets/transaction_item_card.dart';
@@ -95,11 +95,19 @@ class WalletHomePage extends GetView<HomeController> {
 
   Widget _buildQuickActionsSection() {
     return QuickActionGrid(
-      actions: [
-        QuickAction(label: 'Send', icon: Icons.arrow_upward, onTap: () {}),
-        QuickAction(label: 'Receive', icon: Icons.arrow_downward, onTap: () {}),
-        QuickAction(label: 'Buy', icon: Icons.add, onTap: () {}),
-        QuickAction(label: 'Swap', icon: Icons.swap_horiz, onTap: () {}),
+      actionButtons: [
+        QuickActionButton(
+          label: 'Send',
+          icon: Icons.arrow_upward,
+          onTap: () {},
+        ),
+        QuickActionButton(
+          label: 'Receive',
+          icon: Icons.arrow_downward,
+          onTap: () {},
+        ),
+        QuickActionButton(label: 'Buy', icon: Icons.add, onTap: () {}),
+        QuickActionButton(label: 'Swap', icon: Icons.swap_horiz, onTap: () {}),
       ],
     );
   }
